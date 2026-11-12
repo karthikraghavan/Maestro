@@ -1,0 +1,162 @@
+version: '3.9'
+
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:1.60
+    container_name: sdlc-jaeger
+    ports:
+      - "16686:16686"
+      - "4318:4318"
+      - "4317:4317"
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+
+  orchestrator:
+    build:
+      context: ./apps/orchestrator
+      dockerfile: Dockerfile
+    container_name: sdlc-orchestrator
+    ports:
+      - "8000:8000"
+    environment:
+      MODE: real
+      ORCHESTRATOR_DB_PATH: /data/orchestrator.db
+      PORT: 8000
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: orchestrator
+    volumes:
+      - ./data:/data
+    depends_on:
+      - jaeger
+
+  po-agent:
+    build:
+      context: ./apps/po_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-po-agent
+    ports:
+      - "8101:8101"
+    environment:
+      MODE: mock
+      PORT: 8101
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: po-agent
+    depends_on:
+      - jaeger
+
+  sm-agent:
+    build:
+      context: ./apps/sm_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-sm-agent
+    ports:
+      - "8102:8102"
+    environment:
+      MODE: mock
+      PORT: 8102
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: sm-agent
+    depends_on:
+      - jaeger
+
+  pm-agent:
+    build:
+      context: ./apps/pm_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-pm-agent
+    ports:
+      - "8103:8103"
+    environment:
+      MODE: mock
+      PORT: 8103
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: pm-agent
+    depends_on:
+      - jaeger
+
+  ba-agent:
+    build:
+      context: ./apps/ba_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-ba-agent
+    ports:
+      - "8104:8104"
+    environment:
+      MODE: mock
+      PORT: 8104
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: ba-agent
+    depends_on:
+      - jaeger
+
+  architect-agent:
+    build:
+      context: ./apps/architect_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-architect-agent
+    ports:
+      - "8105:8105"
+    environment:
+      MODE: mock
+      PORT: 8105
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: architect-agent
+    depends_on:
+      - jaeger
+
+  project-lead-agent:
+    build:
+      context: ./apps/project_lead_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-project-lead-agent
+    ports:
+      - "8106:8106"
+    environment:
+      MODE: mock
+      PORT: 8106
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: project-lead-agent
+    depends_on:
+      - jaeger
+
+  developer-agent:
+    build:
+      context: ./apps/developer_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-developer-agent
+    ports:
+      - "8107:8107"
+    environment:
+      MODE: mock
+      PORT: 8107
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: developer-agent
+    depends_on:
+      - jaeger
+
+  qa-agent:
+    build:
+      context: ./apps/qa_agent
+      dockerfile: Dockerfile
+    container_name: sdlc-qa-agent
+    ports:
+      - "8108:8108"
+    environment:
+      MODE: mock
+      PORT: 8108
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://jaeger:4318
+      OTEL_SERVICE_NAME: qa-agent
+    depends_on:
+      - jaeger
+
+  console:
+    build:
+      context: ./apps/console
+      dockerfile: Dockerfile
+    container_name: sdlc-console
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_ORCHESTRATOR_URL: http://orchestrator:8000
+    depends_on:
+      - orchestrator

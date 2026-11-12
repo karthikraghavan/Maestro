@@ -1,0 +1,16 @@
+.env
+/.venv
+/__pycache__
+/**/__pycache__
+/**/node_modules
+/**/dist
+/.pytest_cache
+/.npm
+/.DS_Store
+/a2a-protocol.pptx
+/notes.excalidraw
+/~$a2a-protocol.pptx
+# Local runtime state and OS/editor artifacts
+/data/*.db
+.DS_Store
+~$*

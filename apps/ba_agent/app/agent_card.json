@@ -1,0 +1,52 @@
+{
+  "name": "Business Analyst Agent",
+  "description": "Elicits process flows, business rules and data definitions, and maintains requirements traceability.",
+  "version": "0.1.0",
+  "provider": "internal",
+  "supportedInterfaces": [
+    "json-rpc-http"
+  ],
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "process.model",
+      "name": "Process Model",
+      "description": "Document current-state and future-state process flows and gap analysis.",
+      "tags": [
+        "process",
+        "model"
+      ]
+    },
+    {
+      "id": "rules.extract",
+      "name": "Rules Extract",
+      "description": "Extract business rules and data definitions from source material.",
+      "tags": [
+        "rules",
+        "extract"
+      ]
+    },
+    {
+      "id": "nfr.capture",
+      "name": "NFR Capture",
+      "description": "Capture non-functional requirements.",
+      "tags": [
+        "nfr",
+        "capture"
+      ]
+    },
+    {
+      "id": "traceability.update",
+      "name": "Traceability Update",
+      "description": "Maintain the requirement-story-test-release traceability matrix.",
+      "tags": [
+        "traceability",
+        "update"
+      ]
+    }
+  ],
+  "securitySchemes": []
+}

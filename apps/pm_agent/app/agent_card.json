@@ -1,0 +1,52 @@
+{
+  "name": "Project Manager Agent",
+  "description": "Plans milestones and dependencies, maintains the RAID log and reports progress, risk and spend to the Program Sponsor.",
+  "version": "0.1.0",
+  "provider": "internal",
+  "supportedInterfaces": [
+    "json-rpc-http"
+  ],
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "project.plan",
+      "name": "Project Plan",
+      "description": "Build the milestone plan, timeline and cross-team dependencies.",
+      "tags": [
+        "project",
+        "plan"
+      ]
+    },
+    {
+      "id": "raid.maintain",
+      "name": "RAID Maintain",
+      "description": "Maintain the risks, assumptions, issues and dependencies log.",
+      "tags": [
+        "raid",
+        "maintain"
+      ]
+    },
+    {
+      "id": "stakeholder.report",
+      "name": "Stakeholder Report",
+      "description": "Report progress, risk and spend to the Program Sponsor.",
+      "tags": [
+        "stakeholder",
+        "report"
+      ]
+    },
+    {
+      "id": "change.request",
+      "name": "Change Request",
+      "description": "Raise scope, budget or timeline change requests for Sponsor approval.",
+      "tags": [
+        "change",
+        "request"
+      ]
+    }
+  ],
+  "securitySchemes": []
+}

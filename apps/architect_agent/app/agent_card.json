@@ -1,0 +1,52 @@
+{
+  "name": "Solution Architect Agent",
+  "description": "Owns system-level architecture, integration patterns, NFR design and Architecture Decision Records.",
+  "version": "0.1.0",
+  "provider": "internal",
+  "supportedInterfaces": [
+    "json-rpc-http"
+  ],
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "architecture.design",
+      "name": "Architecture Design",
+      "description": "Produce the high-level architecture within enterprise standards.",
+      "tags": [
+        "architecture",
+        "design"
+      ]
+    },
+    {
+      "id": "adr.write",
+      "name": "ADR Write",
+      "description": "Write Architecture Decision Records.",
+      "tags": [
+        "adr",
+        "write"
+      ]
+    },
+    {
+      "id": "api.contract",
+      "name": "API Contract",
+      "description": "Define integration patterns and API contracts.",
+      "tags": [
+        "api",
+        "contract"
+      ]
+    },
+    {
+      "id": "design.review",
+      "name": "Design Review",
+      "description": "Review designs for scalability, resilience, performance and security.",
+      "tags": [
+        "design",
+        "review"
+      ]
+    }
+  ],
+  "securitySchemes": []
+}

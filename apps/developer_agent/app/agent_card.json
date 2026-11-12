@@ -1,0 +1,47 @@
+{
+  "name": "Developer Agent",
+  "description": "Implements assigned stories as tested code on feature branches and raises pull requests. Runs as a scalable pool.",
+  "version": "0.1.0",
+  "provider": "internal",
+  "supportedInterfaces": [
+    "json-rpc-http"
+  ],
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "story.implement",
+      "name": "Story Implement",
+      "description": "Implement a story with unit tests on a feature branch and raise a PR.",
+      "tags": [
+        "story",
+        "implement"
+      ]
+    },
+    {
+      "id": "defect.fix",
+      "name": "Defect Fix",
+      "description": "Fix defects logged by QA.",
+      "tags": [
+        "defect",
+        "fix"
+      ]
+    },
+    {
+      "id": "pr.revise",
+      "name": "PR Revise",
+      "description": "Address Code Reviewer and Project Lead comments on a pull request.",
+      "tags": [
+        "pr",
+        "revise"
+      ]
+    }
+  ],
+  "securitySchemes": [],
+  "x-pool": {
+    "scalable": true,
+    "maxInstances": 20
+  }
+}

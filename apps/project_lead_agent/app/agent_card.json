@@ -1,0 +1,52 @@
+{
+  "name": "Project Lead Agent",
+  "description": "Technical authority for the team: component design, coding standards, PR approval and technical debt.",
+  "version": "0.1.0",
+  "provider": "internal",
+  "supportedInterfaces": [
+    "json-rpc-http"
+  ],
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "tech.answer",
+      "name": "Tech Answer",
+      "description": "Answer technology questions from developers, QA and DevOps.",
+      "tags": [
+        "tech",
+        "answer"
+      ]
+    },
+    {
+      "id": "design.component",
+      "name": "Design Component",
+      "description": "Turn the architecture into component-level design and technical tasks.",
+      "tags": [
+        "design",
+        "component"
+      ]
+    },
+    {
+      "id": "pr.approve",
+      "name": "PR Approve",
+      "description": "Approve pull requests for design conformance after review, tests and scans pass.",
+      "tags": [
+        "pr",
+        "approve"
+      ]
+    },
+    {
+      "id": "techdebt.propose",
+      "name": "Tech Debt Propose",
+      "description": "Propose refactoring stories to the Product Owner.",
+      "tags": [
+        "techdebt",
+        "propose"
+      ]
+    }
+  ],
+  "securitySchemes": []
+}

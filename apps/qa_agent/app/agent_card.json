@@ -1,0 +1,65 @@
+{
+  "name": "QA Agent",
+  "description": "Derives tests from acceptance criteria, runs automated suites, logs and retests defects, and recommends quality sign-off.",
+  "version": "0.1.0",
+  "provider": "internal",
+  "supportedInterfaces": [
+    "json-rpc-http"
+  ],
+  "capabilities": {
+    "streaming": true,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "test.design",
+      "name": "Test Design",
+      "description": "Derive test scenarios from acceptance criteria.",
+      "tags": [
+        "test",
+        "design"
+      ]
+    },
+    {
+      "id": "test.execute",
+      "name": "Test Execute",
+      "description": "Run functional, API, UI and regression suites.",
+      "tags": [
+        "test",
+        "execute"
+      ]
+    },
+    {
+      "id": "defect.log",
+      "name": "Defect Log",
+      "description": "Log defects with severity, steps to reproduce and evidence.",
+      "tags": [
+        "defect",
+        "log"
+      ]
+    },
+    {
+      "id": "defect.retest",
+      "name": "Defect Retest",
+      "description": "Retest fixes and close or reopen defects.",
+      "tags": [
+        "defect",
+        "retest"
+      ]
+    },
+    {
+      "id": "quality.signoff",
+      "name": "Quality Signoff",
+      "description": "Publish the test summary and quality sign-off recommendation.",
+      "tags": [
+        "quality",
+        "signoff"
+      ]
+    }
+  ],
+  "securitySchemes": [],
+  "x-pool": {
+    "scalable": true,
+    "maxInstances": 10
+  }
+}
